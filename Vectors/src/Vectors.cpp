@@ -30,6 +30,12 @@ int main() {
     for (auto it = strings.begin(); it != strings.end(); ++it) {
         cout << *it << endl;
     }
+
+    cout << "Reverse iterator loop: " << endl;
+    for (auto it = strings.rbegin(); it != strings.rend(); ++it) {
+        cout << *it << endl;
+    }
+
     cout << endl;
 
     cout << "Single item." << endl;

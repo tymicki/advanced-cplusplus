@@ -20,7 +20,7 @@ int main() {
     int capacity = numbers.capacity();
     cout << "Capacity: " << capacity << endl;
 
-    for (int i = 0; i < 10000; i++) {
+    for (int i = 0; i < 100000; i++) {
 
         if (numbers.capacity() != capacity) {
             capacity = numbers.capacity();

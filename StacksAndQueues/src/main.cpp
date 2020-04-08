@@ -5,61 +5,56 @@
 
 using namespace std;
 
-class Test
-{
-	string name;
+class Test {
+    string name;
 public:
 
-	explicit Test(string name) : name(name)
-	{
-		
-	}
+    explicit Test(string name) : name(name) {
 
-	~Test()
-	{
-		
-	}
+    }
 
-	void print() const
-	{
-		cout << name << endl;
-	}
+    ~Test() {
+
+    }
+
+    void print() const {
+        cout << name << endl;
+    }
 };
-int main(int argc, char const *argv[])
-{
-	//LIFO
-	stack<Test> testStack;
-	
-	testStack.push(Test("Mike"));
-	testStack.push(Test("John"));
-	testStack.push(Test("Sue"));
 
-	cout << endl;
+int main(int argc, char const *argv[]) {
+    //LIFO
+    stack<Test> testStack;
 
-	Test &test1 = testStack.top();
-	test1.print();
+    testStack.push(Test("Mike"));
+    testStack.push(Test("John"));
+    testStack.push(Test("Sue"));
 
-	testStack.pop();
-	Test &test2 = testStack.top();
-	test2.print();
+    cout << endl;
 
-	//FIFO
-	queue<Test> testQueue;
+    Test &test1 = testStack.top();
+    test1.print();
 
-	testQueue.push(Test("Mike"));
-	testQueue.push(Test("John"));
-	testQueue.push(Test("Sue"));
-	
-	cout << endl;
+    testStack.pop();
+    Test &test2 = testStack.top();
+    test2.print();
 
-	testQueue.back().print();
+    //FIFO
+    queue<Test> testQueue;
 
-	while(testQueue.size() > 0)
-	{
-		Test &test = testQueue.front();
-		test.print();
-		testQueue.pop();
-	}
+    testQueue.push(Test("Mike"));
+    testQueue.push(Test("John"));
+    testQueue.push(Test("Sue"));
 
-	return 0;
+    cout << endl;
+
+    testQueue.back().print();
+
+    while (testQueue.size() > 0) {
+        Test &test = testQueue.front();
+        test.print();
+        testQueue.pop();
+    }
+
+    return 0;
 }

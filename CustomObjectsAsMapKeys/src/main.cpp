@@ -1,57 +1,36 @@
 #include <iostream>
 #include <map>
-#include <string>
 
 using namespace std;
 
-class Person {
-private:
-    string name;
-    int age;
-
-public:
-
-    Person() :
-            name(""), age(0) {
-
-    }
-
-    Person(string name, int age) :
-            name(name), age(age) {
-
-    }
-
-    Person(const Person &other) {
-        name = other.name;
-        age = other.age;
-    }
-
-    void print() const {
-        cout << name << ": " << age << flush;
-    }
-
-    bool operator<(const Person &other) const {
-
-        if (name == other.name) {
-            return age < other.age;
-        } else {
-            return name < other.name;
-        }
-    }
-};
-
 int main() {
-    map<Person, int> people;
+    multimap<int, string> lookup;
+    lookup.insert(make_pair(30, "Mike"));
+    lookup.insert(make_pair(10, "Vicky"));
+    lookup.insert(make_pair(30, "Raj"));
+    lookup.insert(make_pair(20, "Bob"));
 
-    people[Person("Mike", 40)] = 40;
-    people[Person("Mike", 444)] = 123;
-    people[Person("Sue", 30)] = 30;
-    people[Person("Raj", 40)] = 20;
+    for (multimap<int, string>::iterator it = lookup.begin(); it != lookup.end(); ++it) {
+        cout << it->first << ": " << it->second << endl;
+    }
 
-    for (map<Person, int>::iterator it = people.begin(); it != people.end(); it++) {
-        cout << it->second << ": " << flush;
-        it->first.print();
-        cout << endl;
+    cout << endl;
+    for (multimap<int, string>::iterator it = lookup.find(20); it != lookup.end(); ++it) {
+        cout << it->first << ": " << it->second << endl;
+    }
+
+    cout << endl;
+    pair<multimap<int, string>::iterator, multimap<int, string>::iterator> its = lookup.equal_range(30);
+
+    for (multimap<int, string>::iterator it = its.first; it != its.second; ++it) {
+        cout << it->first << ": " << it->second << endl;
+    }
+
+    cout << endl;
+    auto its2 = lookup.equal_range(30);
+
+    for (auto it = its.first; it != its2.second; ++it) {
+        cout << it->first << ": " << it->second << endl;
     }
 
     return 0;

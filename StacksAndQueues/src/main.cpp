@@ -32,12 +32,11 @@ int main(int argc, char const *argv[]) {
 
     cout << endl;
 
-    Test &test1 = testStack.top();
-    test1.print();
-
-    testStack.pop();
-    Test &test2 = testStack.top();
-    test2.print();
+    while (testStack.size() > 0) {
+        Test &test = testStack.top();
+        test.print();
+        testStack.pop();
+    }
 
     //FIFO
     queue<Test> testQueue;

@@ -9,45 +9,46 @@
 #include <iostream>
 #include <ostream>
 #include <string>
+
 using namespace std;
 
 class Test {
 private:
-	int id;
-	string name;
+    int id;
+    string name;
 
 public:
-	Test() :
-			id(0), name("") {
-	}
+    Test() :
+            id(0), name("") {
+    }
 
-	Test(int id, string name) :
-			id(id), name(name) {
+    Test(int id, string name) :
+            id(id), name(name) {
 
-	}
+    }
 
-	const Test &operator=(const Test &other) {
-		id = other.id;
-		name = other.name;
+    const Test &operator=(const Test &other) {
+        id = other.id;
+        name = other.name;
 
-		return *this;
-	}
+        return *this;
+    }
 
-	Test(const Test &other) {
-		*this = other;
-	}
+    Test(const Test &other) {
+        *this = other;
+    }
 
-	friend ostream &operator<<(ostream &out, const Test &test) {
-		out << test.id << ": " << test.name;
-		return out;
-	}
+    friend ostream &operator<<(ostream &out, const Test &test) {
+        out << test.id << ": " << test.name;
+        return out;
+    }
 };
 
 int main() {
 
-	Test test1(10, "Mike");
+    Test test1(10, "Mike");
 
-	cout << test1 << endl;
+    cout << test1 << endl;
 
-	return 0;
+    return 0;
 }

@@ -15,12 +15,9 @@ private:
     int one;
 
 public:
-    Parent() : one(0) {
-
-    }
+    Parent() : one(0) {}
 
     Parent(const Parent &other) : one(0) {
-
         one = other.one;
         cout << "copy parent" << endl;
     }
@@ -29,9 +26,7 @@ public:
         cout << "parent" << endl;
     }
 
-    virtual ~Parent() {
-
-    }
+    virtual ~Parent() {}
 };
 
 class Child : public Parent {
@@ -39,9 +34,7 @@ private:
     int two;
 
 public:
-    Child() : two(0) {
-
-    }
+    Child() : two(0) {}
 
     void print() {
         cout << "child" << endl;

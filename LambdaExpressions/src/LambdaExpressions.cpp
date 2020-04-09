@@ -10,22 +10,15 @@
 
 using namespace std;
 
-void test(void (*pFunc)()) 
-{
-	pFunc();
+void test(void(*pFunc)()) {
+    pFunc();
 }
 
 int main() {
 
-	auto func = []()
-	{
-		cout << "Hello" << endl;
-	};
+    auto func = []() { cout << "Hello" << endl; };
+    func();
 
-	func();
-
-	test(func);
-
-	test([]() {cout << "Hello again" << endl; });
-	return 0;
+    test(func);
+    return 0;
 }

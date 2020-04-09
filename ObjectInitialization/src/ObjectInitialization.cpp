@@ -17,13 +17,9 @@ class Test {
 
 public:
     Test() = default;
-
     Test(const Test &other) = delete;
-
     Test &operator=(const Test &other) = delete;
-
     Test(int id) : id(id) {
-
     }
 
     void print() {
@@ -42,7 +38,7 @@ int main() {
     /**
      * Won't work, we deleted them.
      */
-    //test2 = test;
+//    test1 = test;
 
     return 0;
 }

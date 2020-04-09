@@ -34,7 +34,7 @@ int main() {
         two = 8;
         cout << one << ", " << two << endl;
     }();
-    cout << two << endl;
+    cout << three << endl;
 
     // Default capture all local variables by reference but two and three by value.
     [&, two, three]() {

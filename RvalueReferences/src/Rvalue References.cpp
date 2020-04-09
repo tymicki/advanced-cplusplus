@@ -9,69 +9,70 @@
 #include <iostream>
 #include <vector>
 #include <memory.h>
+
 using namespace std;
 
 class Test {
 private:
-	static const int SIZE = 100;
+    static const int SIZE = 100;
 
-	int *_pBuffer;
+    int *_pBuffer;
 
 public:
-	Test() {
-		cout << "constructor" << endl;
-		_pBuffer = new int[SIZE] { };
-	}
+    Test() {
+        cout << "constructor" << endl;
+        _pBuffer = new int[SIZE]{};
+    }
 
-	Test(int i) {
-		cout << "parameterized constructor" << endl;
-		_pBuffer = new int[SIZE] { };
+    Test(int i) {
+        cout << "parameterized constructor" << endl;
+        _pBuffer = new int[SIZE]{};
 
-		for (int i = 0; i < SIZE; i++) {
-			_pBuffer[i] = 7 * i;
-		}
-	}
+        for (int i = 0; i < SIZE; i++) {
+            _pBuffer[i] = 7 * i;
+        }
+    }
 
-	Test(const Test &other) {
-		cout << "copy constructor" << endl;
+    Test(const Test &other) {
+        cout << "copy constructor" << endl;
 
-		_pBuffer = new int[SIZE] { };
+        _pBuffer = new int[SIZE]{};
 
-		memcpy(_pBuffer, other._pBuffer, SIZE * sizeof(int));
-	}
+        memcpy(_pBuffer, other._pBuffer, SIZE * sizeof(int));
+    }
 
-	Test &operator=(const Test &other) {
-		cout << "assignment" << endl;
-		_pBuffer = new int[SIZE] { };
+    Test &operator=(const Test &other) {
+        cout << "assignment" << endl;
+        _pBuffer = new int[SIZE]{};
 
-		memcpy(_pBuffer, other._pBuffer, SIZE * sizeof(int));
-		return *this;
-	}
+        memcpy(_pBuffer, other._pBuffer, SIZE * sizeof(int));
+        return *this;
+    }
 
-	~Test() {
-		cout << "destructor" << endl;
+    ~Test() {
+        cout << "destructor" << endl;
 
-		delete[] _pBuffer;
-	}
+        delete[] _pBuffer;
+    }
 
-	friend ostream &operator<<(ostream &out, const Test &test);
+    friend ostream &operator<<(ostream &out, const Test &test);
 };
 
 ostream &operator<<(ostream &out, const Test &test) {
-	out << "Hello from test";
-	return out;
+    out << "Hello from test";
+    return out;
 }
 
 Test getTest() {
-	return Test();
+    return Test();
 }
 
 void check(const Test &value) {
-	cout << "lValue function!" << endl;
+    cout << "lValue function!" << endl;
 }
 
 void check(Test &&value) {
-	cout << "rValue function!" << endl;
+    cout << "rValue function!" << endl;
 }
 
 void intTest(const int &value) {
@@ -81,26 +82,27 @@ void intTest(const int &value) {
 void intTest(int &&value) {
     cout << "rValue int func!" << endl;
 }
+
 int main() {
 
-	Test test1 = getTest();
+    Test test1 = getTest();
 
-	cout << test1 << endl;
+    cout << test1 << endl;
 
-	vector<Test> vec;
-	vec.push_back(Test());
+    vector<Test> vec;
+    vec.push_back(Test());
 
-	Test &ltest1 = test1;
+    Test &ltest1 = test1;
 
-	Test &&rtest1 = getTest();
+    Test &&rtest1 = getTest();
 
-	check(test1);
-	check(getTest());
-	check(Test());
+    check(test1);
+    check(getTest());
+    check(Test());
 
     int num = 4;
     intTest(++num);
     intTest(num++);
 
-	return 0;
+    return 0;
 }

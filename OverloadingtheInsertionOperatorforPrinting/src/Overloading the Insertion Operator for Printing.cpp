@@ -7,48 +7,18 @@
 //============================================================================
 
 #include <iostream>
-#include <ostream>
-#include <string>
+#include "Complex.h"
 
 using namespace std;
-
-class Test {
-private:
-    int id;
-    string name;
-
-public:
-    Test() :
-            id(0), name("") {
-    }
-
-    Test(int id, string name) :
-            id(id), name(name) {
-
-    }
-
-    const Test &operator=(const Test &other) {
-        id = other.id;
-        name = other.name;
-
-        return *this;
-    }
-
-    Test(const Test &other) {
-        *this = other;
-    }
-
-    friend ostream &operator<<(ostream &out, const Test &test) {
-        out << test.id << ": " << test.name;
-        return out;
-    }
-};
+using namespace caveofprogramming;
 
 int main() {
 
-    Test test1(10, "Mike");
-
-    cout << test1 << endl;
-
+    Complex c1(2, 3);
+    Complex c2(c1);
+    c1 = c2;
+    Complex c3;
+    c3 = c2;
+    cout << c2 << ": " << c3 << endl;
     return 0;
 }

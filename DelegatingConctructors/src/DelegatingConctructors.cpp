@@ -7,29 +7,30 @@
 //============================================================================
 
 #include <iostream>
+
 using namespace std;
 
 class Parent {
-	int dogs{5};
-	string text{"hello"};
+    int dogs{5};
+    string text{"hello"};
 
 public:
-	Parent(): Parent("hello") {
-		cout << "No parameter parent constructor" << endl;
-	}
+    Parent() : Parent("hello") {
+        cout << "No parameter parent constructor" << endl;
+    }
 
-	Parent(string text) {
-		cout << "string parent constructor" << endl;
-	}
+    Parent(string text) {
+        cout << "string parent constructor" << endl;
+    }
 };
 
-class Child: public Parent {
+class Child : public Parent {
 public:
-	Child() = default;
+    Child() = default;
 };
 
 int main() {
-	Parent parent("Hello");
-	Child child;
-	return 0;
+    Parent parent("Hello");
+    Child child;
+    return 0;
 }

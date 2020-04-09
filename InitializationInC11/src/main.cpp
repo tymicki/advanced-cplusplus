@@ -38,7 +38,7 @@ int main() {
 
     struct {
         int value;
-        string text;
+    private: string text;
     } s1{5, "Hi"};
 
     cout << s1.text << endl;

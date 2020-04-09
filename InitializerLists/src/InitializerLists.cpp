@@ -13,34 +13,30 @@
 
 using namespace std;
 
-class Test
-{
+class Test {
 public:
-	Test(initializer_list<string> texts)
-	{
-		for(auto value : texts)
-		{
-			cout << value << endl;
-		}
-	}
+    Test(initializer_list<string> texts) {
+        for (auto value : texts) {
+            cout << value << endl;
+        }
+    }
 
-	void print(initializer_list<string> strings)
-	{
-		for (auto value : strings)
-		{
-			cout << value << endl;
-		}
-	}
+    void print(initializer_list<string> strings) {
+        for (auto value : strings) {
+            cout << value << endl;
+        }
+    }
 };
+
 int main() {
-	
-	vector<int> numbers{ 1, 3, 4, 6 };
-	cout << numbers[2] << endl;
 
-	Test test{ "apple", "orange", "banana" };
+    vector<int> numbers{1, 3, 4, 6};
+    cout << numbers[2] << endl;
 
-	test.print({ "one", "two", "three", "four" });
+    Test test{"apple", "orange", "banana"};
+
+    test.print({"one", "two", "three", "four"});
 
 
-	return 0;
+    return 0;
 }

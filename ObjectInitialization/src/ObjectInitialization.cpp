@@ -11,39 +11,38 @@
 
 using namespace std;
 
-class Test
-{
-	int id{ 3 };
-	string name{"Mike"};
+class Test {
+    int id{3};
+    string name{"Mike"};
 
 public:
-	Test() = default;
-	Test(const Test &other) = delete;
-	Test& operator=(const Test& other) = delete;
+    Test() = default;
 
-	Test(int id) : id(id)
-	{
-		
-	}
+    Test(const Test &other) = delete;
 
-	void print()
-	{
-		cout << id << ": " << name << endl;
-	}
+    Test &operator=(const Test &other) = delete;
+
+    Test(int id) : id(id) {
+
+    }
+
+    void print() {
+        cout << id << ": " << name << endl;
+    }
 };
 
 int main() {
 
-	Test test;
-	test.print();
+    Test test;
+    test.print();
 
-	Test test1(77);
-	test1.print();
-	
-	/**
-	 * Won't work, we deleted them. 
-	 */
-	//test2 = test;
+    Test test1(77);
+    test1.print();
 
-	return 0;
+    /**
+     * Won't work, we deleted them.
+     */
+    //test2 = test;
+
+    return 0;
 }

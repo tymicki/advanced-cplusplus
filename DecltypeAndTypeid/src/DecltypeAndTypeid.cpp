@@ -12,24 +12,24 @@
 
 using namespace std;
 
-class Test
-{
+class Test {
 public:
-	Test() {}
-	~Test() {}
+    Test() {}
+
+    ~Test() {}
 };
 
 int main() {
-	int value;
-	string str;
-	Test test;
+    int value;
+    string str;
+    Test test;
 
-	cout << typeid(value).name() << endl;
-	cout << typeid(str).name() << endl;
-	cout << typeid(test).name() << endl;
+    cout << typeid(value).name() << endl;
+    cout << typeid(str).name() << endl;
+    cout << typeid(test).name() << endl;
 
-	decltype(str) name = "Bob";
+    decltype(str) name = "Bob";
 
-	cout << name << endl;
-	return 0;
+    cout << name << endl;
+    return 0;
 }

@@ -7,18 +7,19 @@
 //============================================================================
 
 #include <iostream>
+
 using namespace std;
 
 int main() {
 
-	int cats = 5;
+    int cats = 5;
 
-	[cats]() mutable {
-		cats = 8;
-		cout << cats << endl;
-	}();
+    [cats]() mutable {
+        cats = 8;
+        cout << cats << endl;
+    }();
 
-	cout << cats << endl;
+    cout << cats << endl;
 
-	return 0;
+    return 0;
 }

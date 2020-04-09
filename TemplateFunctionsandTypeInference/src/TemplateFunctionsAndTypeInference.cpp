@@ -34,7 +34,7 @@ int main() {
     print(5);
     print<>(6);
 
-    show<double>();
+    show();
 
     return 0;
 }
